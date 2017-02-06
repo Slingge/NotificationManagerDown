@@ -30,4 +30,14 @@
         android:text="取消下载" />
 
 
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="10dp"
+        android:max="100"
+        style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+        android:id="@+id/progressBar"/>
+
+
+
 </LinearLayout>
