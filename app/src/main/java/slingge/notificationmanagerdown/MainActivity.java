@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener ,DownloadTask.DownProgressListenter{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private ProgressBar progressBar;
 
@@ -57,8 +57,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_cancel.setOnClickListener(this);
 
         progressBar= (ProgressBar) findViewById(R.id.progressBar);
-        DownloadTask downloadTask=new DownloadTask();
-        downloadTask.setDownProgressListenter(this);
     }
 
     @Override
@@ -98,11 +96,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onDestroy() {
         super.onDestroy();
         unbindService(connection);
-    }
-
-    @Override
-    public void Progress(int prigress) {
-        progressBar.setProgress(prigress);
     }
 
 

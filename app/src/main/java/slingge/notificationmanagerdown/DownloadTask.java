@@ -30,20 +30,6 @@ public class DownloadTask extends AsyncTask<String, Integer, Integer> {
     private boolean isPaused = false;
     private int lastProgress;
 
-
-    public interface DownProgressListenter{
-        void Progress(int prigress);
-    }
-
-    public DownProgressListenter downProgressListenter;
-
-    public void setDownProgressListenter(DownProgressListenter downProgressListenter) {
-        this.downProgressListenter = downProgressListenter;
-    }
-
-    public DownloadTask() {
-    }
-
     public DownloadTask(DownloadListenter listenter) {
         this.listenter = listenter;
     }
@@ -91,7 +77,6 @@ public class DownloadTask extends AsyncTask<String, Integer, Integer> {
                         //计算已下载百分比
                         int progress = (int) ((total + downloadedLength) * 100 / contentLength);
                         publishProgress(progress);
-                        downProgressListenter.Progress(progress);
                     }
                 }
                 response.body().close();
